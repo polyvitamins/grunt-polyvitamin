@@ -84,7 +84,12 @@ module.exports = function (grunt) {
     var dist = unixify(relative(this.data.dist, process.cwd())),
     map = {};
     for (var i=0;i<subtasks;++i) {
+      var compName = this.data.components[i].split('\\').join('/').split('/').filter(function(v,i,a) {return i===a.length-2;})[0];
+      
       var comp = unixify(relative(this.data.components[i], process.cwd()));
+      if (subtasks>1)
+      map[dist+'/'+compName+'/'] = comp;
+      else
       map[dist] = comp;
     } 
 
