@@ -91,12 +91,13 @@ module.exports = function (grunt) {
       map[dist+'/'+compName+'/'] = comp;
       else
       map[dist] = comp;
-    } 
+    }
 
     generator.perform({
+      "root": process.cwd()+'/.dev/poly/',
       "apps": map,
       "aliases": {
-        "/": process.cwd()+'/.dev/poly/'
+          "/poly/": process.cwd()+'/.dev/poly/'
       }
     }, done);
 

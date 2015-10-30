@@ -50,14 +50,25 @@ each = function(subject, fn) {
 может быть опять таки псевдоним )
 */
 patchAliases = function(aliases, p) {
-	each(aliases, function(path, alias) {
-		if (p.substr(0, alias.length)===alias) {
-			p = patchAliases(aliases, aliases[alias]+p.substr(alias.length));
-			return false;
+
+	var graph = [];
+	for (var prop in aliases) {
+		if (aliases.hasOwnProperty(prop)) {
+			graph.push([prop, aliases[prop]]);
 		}
-	});
+	}
+	var gotya = false;
+	do {
+		for (var i = 0;i<graph.length;++i) {
+			if (graph[i]===0) continue;
+			if (graph[i][0]===p.substr(0, graph[i][0].length)) {
+				p = graph[i][1]+p.substr(graph[i][0].length);
+				graph[i]=null;
+			}
+		}
+	} while(gotya);
 	return p;
-}
+},
 /*
 Converts relative path to absolue by process current folder 
 */
@@ -83,6 +94,8 @@ relative = function(p, root, aliases) {
 defineTester = function(generator, url) {
 	// Selffactory
 	if (this.constructor!==defineTester) return new defineTester(generator, url);
+
+	
 
 	var self = this;
 	/*

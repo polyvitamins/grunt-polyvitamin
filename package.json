@@ -1,8 +1,8 @@
 {
   "name": "polyvitamin",
   "version": "0.0.1",
-  "description": "polyvitamin builder",
-  "repository": "",
+  "description": "Javascript builder for polyvitamins architecutre",
+  "repository": "https://github.com/polyvitamins/grunt-polyvitamin",
   "author": {
     "name": "Vladimir Morulus",
     "email": "vladimirmorulus@gmail.com",
