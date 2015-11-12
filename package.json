@@ -1,5 +1,5 @@
 {
-  "name": "polyvitamin",
+  "name": "grunt-polyvitamin",
   "version": "0.0.1",
   "description": "Javascript builder for polyvitamins architecutre",
   "repository": "https://github.com/polyvitamins/grunt-polyvitamin",
@@ -17,6 +17,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+"extend": "latest",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-nodeunit": "~0.3.0",
